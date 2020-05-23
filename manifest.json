@@ -1,0 +1,17 @@
+{
+  "name": "OLAT M3U8 link",
+  "version": "0.1",
+  "description": "Adds a button below each video which copies the desired m3u8 link",
+  "author": "Clemens 'ClProsser' Prosser",
+  "permissions": ["activeTab"],
+  "content_scripts": [{
+      "js": ["index.js"],
+      "matches": ["<all_urls>"],
+      "run_at": "document_end",
+      "all_frames": true
+  }],
+  "icons": {
+      "270": "icon.png"
+  },
+  "manifest_version": 2
+}
