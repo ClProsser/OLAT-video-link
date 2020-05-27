@@ -1,12 +1,12 @@
 {
   "name": "OLAT video link",
-  "version": "0.1",
+  "version": "1.0",
   "description": "Adds a button below each video which copies the desired video link",
   "author": "Clemens 'ClProsser' Prosser",
   "permissions": ["activeTab", "tabs"],
   "content_scripts": [{
       "js": ["index.js"],
-      "matches": ["<all_urls>"],
+      "matches": ["*://*/*"],
       "run_at": "document_end",
       "all_frames": true
   }],

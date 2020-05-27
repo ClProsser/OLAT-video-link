@@ -13,15 +13,15 @@ const copy = input => {
     return result;
 }
 
+/*
+ * Adds buttons to the DOM
+ */
 const addButtons = () => {
     let bodyElements = document.querySelectorAll('body > *');
     //ignore empty frames
     if (bodyElements.length !== 0) {
         //delete existing buttons
-        let existingButtons = document.getElementsByClassName('MAGIC-LINK-DIV');
-        for(let i = 0; i < existingButtons.length; i++) {
-            existingButtons[i].remove();
-        }
+        document.querySelectorAll('.MAGIC-LINK-DIV').forEach(elem => elem.remove());
         /*
             A player looks like this:
             [...] > mediaelementwrapper > video[] > source.src
@@ -58,8 +58,12 @@ const addButtons = () => {
     }
 }
 
+//Check if we use chrome or firefox
+const engine = (typeof InstallTrigger !== 'undefined') ? browser : chrome;
+
+//Initialise our script
 if(document.cookie.indexOf('OLAT-UI-TIMESTAMP') !== -1) {
-	 chrome.runtime.onMessage.addListener(request => {
+	 engine.runtime.onMessage.addListener(request => {
         if(request.message === 'url-changed') {
     		addButtons();
         }
