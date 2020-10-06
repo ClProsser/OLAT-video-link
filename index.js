@@ -62,7 +62,7 @@ const addButtons = () => {
 const engine = (typeof InstallTrigger !== 'undefined') ? browser : chrome;
 
 //Initialise our script
-if(document.cookie.indexOf('OLAT-UI-TIMESTAMP') !== -1) {
+if(document.title.indexOf('OpenOlat') !== -1) {
 	 engine.runtime.onMessage.addListener(request => {
         if(request.message === 'url-changed') {
     		addButtons();
